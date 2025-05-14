@@ -1,6 +1,6 @@
 <?php
 $host = 'mysql-app-erd-v2.mysql.database.azure.com'; // ton host Azure
-$db   = 'app_erd'; // ton nom de base
+$db   = 'appdb'; // ton nom de base
 $user = 'adminuser@mysql-app-erd-v2'; // utilisateur complet
 $pass = 'Etan2025!'; // mot de passe que tu as défini
 $charset = 'utf8mb4';
