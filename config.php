@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$db   = 'app_erd';
-$user = 'root';
-$pass = '';
+$host = 'mysql-app-erd-v2.mysql.database.azure.com';
+$db   = 'appdb';
+$user = 'adminuser';
+$pass = 'Etan2025!';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -15,6 +15,6 @@ $options = [
 try {
      $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-     throw new \PDOException($e->getMessage(), (int)$e->getCode());
+     exit("Échec de la connexion : " . $e->getMessage());
 }
 ?>
