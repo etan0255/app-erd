@@ -1,7 +1,7 @@
 <?php
 $host = 'mysql-app-erd-v2.mysql.database.azure.com';
 $db   = 'appdb';
-$user = 'adminuser@mysql-app-erd-v2';
+$user = 'adminuser';
 $pass = 'azerty11@';
 $charset = 'utf8mb4';
 
