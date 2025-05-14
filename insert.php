@@ -1,10 +1,16 @@
 <?php
-require 'config.php';
+// insert.php
+include 'config.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $stmt = $pdo->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
-    $stmt->execute([$name, $email]);
-    echo "Utilisateur ajouté avec succès. <a href='index.php'>Retour</a>";
+    $nom = $_POST['name'];
+    $email = $_POST['email'];
+
+    $stmt = $pdo->prepare("INSERT INTO contacts (nom, email) VALUES (?, ?)");
+    $stmt->execute([$nom, $email]);
+
+    echo "Utilisateur ajouté avec succès !";
+} else {
+    echo "Méthode invalide.";
 }
 ?>
