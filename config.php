@@ -1,15 +1,15 @@
 <?php
-$host = 'mysql-app-erd-v2.mysql.database.azure.com'; // ton host Azure
-$db   = 'appdb'; // ton nom de base
-$user = 'adminuser@mysql-app-erd-v2'; // utilisateur complet
-$pass = 'Etan2025!'; // mot de passe que tu as défini
+$host = 'mysql-app-erd-v2.mysql.database.azure.com';
+$db   = 'appdb';
+$user = 'adminuser@mysql-app-erd-v2';
+$pass = 'Etan2025!';
 $charset = 'utf8mb4';
 
+// Utilise le chemin relatif correct
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset;sslmode=require";
 
-// Option supplémentaire pour Azure
 $options = [
-    PDO::MYSQL_ATTR_SSL_CA    => '/path/to/BaltimoreCyberTrustRoot.crt.pem',
+    PDO::MYSQL_ATTR_SSL_CA    => __DIR__ . '/certs/DigiCert.pem',
     PDO::ATTR_ERRMODE         => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ];
