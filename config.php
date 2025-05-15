@@ -2,7 +2,7 @@
 $host = 'mysql-app-erd-v2.mysql.database.azure.com';
 $db   = 'appdb';
 $user = 'adminuser@mysql-app-erd-v2';
-$pass = 'azerty11@';
+$pass = 'eTAN2025§';
 $charset = 'utf8mb4';
 
 // Utilise le chemin relatif correct
