@@ -9,7 +9,7 @@ $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset;sslmode=verify-ca";
 
 $options = [
-    PDO::MYSQL_ATTR_SSL_CA => '/home/site/wwwroot/certs/Baltimore.pem',
+    PDO::MYSQL_ATTR_SSL_CA => '/home/site/wwwroot/certs/BaltimoreCyberTrustRoot.pem',
     PDO::ATTR_ERRMODE         => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ];
