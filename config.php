@@ -14,7 +14,7 @@ echo "Fichier existe ? " . (file_exists($certPath) ? 'oui ✅' : 'non ❌') . "\
 echo "</pre>";
 
 // DSN avec SSL requis
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset;sslmode=require";
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
 // Options SSL
 $options = [
