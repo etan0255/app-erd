@@ -6,7 +6,7 @@ $pass = 'Test2025!';
 $charset = 'utf8mb4';
 
 // Utilise le chemin relatif correct
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset;sslmode=verify-ca";
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset;sslmode=require";
 
 $options = [
     PDO::MYSQL_ATTR_SSL_CA => __DIR__ . '/certs/BaltimoreCyberTrustRoot.pem',
