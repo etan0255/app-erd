@@ -1,6 +1,6 @@
 <?php
 $host = 'mysql-app-erd-v2.mysql.database.azure.com';
-$db   = 'app-erd';
+$db   = 'appdb';
 $user = 'adminuser';
 $pass = 'Test2025!';
 $charset = 'utf8mb4';
