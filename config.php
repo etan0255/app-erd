@@ -17,7 +17,8 @@ $options = [
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
+    echo "✅ Connexion réussie sans SSL.";
 } catch (\PDOException $e) {
-    die("Échec de la connexion : " . $e->getMessage());
+    die("❌ Erreur sans SSL : " . $e->getMessage());
 }
 ?>
