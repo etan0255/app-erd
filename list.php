@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-$stmt = $pdo->query("SELECT * FROM users");
+$stmt = $pdo->query("SELECT * FROM contacts");
 echo "<h2>Liste des utilisateurs</h2><ul>";
 while ($row = $stmt->fetch()) {
     echo "<li>{$row['name']} ({$row['email']})</li>";
