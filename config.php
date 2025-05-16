@@ -10,7 +10,7 @@ $user = "adminuser";
 $pass = "Test2025!";
 
 // Construction de la chaîne de connexion
-$dsn = "sqlsrv:Server=$serverName;Database=$database;Encrypt=true;TrustServerCertificate=false;";
+$dsn = "mysql:host=mysql-app-erd-v2.mysql.database.azure.com;port=3306;dbname=appdb;charset=utf8mb4";
 try {
     // Connexion PDO avec SQL Authentication
     $pdo = new PDO($dsn, $user, $pass);
