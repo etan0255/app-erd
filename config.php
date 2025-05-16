@@ -4,7 +4,7 @@ $username = $_POST['adminuser'] ?? '';
 $password = $_POST['Test2025!'] ?? '';
 
 // Connexion PDO avec la chaîne de connexion SQL Server en forçant SQL Authentication
-$serverName = "tcp:sqlserver-partiel.database.windows.net,1433";
+$serverName = "tcp:mysql-app-erd-v2.mysql.database.azure.com,1433";
 $database = "appdb";
 $user = "adminuser";
 $pass = "Test2025!";
