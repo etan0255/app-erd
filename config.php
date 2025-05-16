@@ -14,7 +14,7 @@ echo "Certificat : $cert_path\n";
 echo "Fichier existe ? " . (file_exists($cert_path) ? 'oui' : 'non') . "\n";
 echo "</pre>";
 
-$dsn = "mysql:host=$host;port=3306;dbname=$db;charset=$charset;sslmode=verify_ca";
+$dsn = "mysql:host=$host;port=3306;dbname=$db;charset=$charset";
 $options = [
     PDO::MYSQL_ATTR_SSL_CA => $cert_path,
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
