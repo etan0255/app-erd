@@ -1,29 +1,21 @@
 <?php
-$host = 'mysql-app-erd-v2.mysql.database.azure.com';
-$db   = 'appdb';
-$user = 'adminuser@mysql-app-erd-v2';
-$pass = 'Test2025!';
-$charset = 'utf8mb4';
+session_start();
+$username = $_POST['adminuser'] ?? '';
+$password = $_POST['Test2025!'] ?? '';
 
-$cert_path = __DIR__ . '/certs/BaltimoreCyberTrustRoot.pem';
+// Connexion PDO avec la chaîne de connexion SQL Server en forçant SQL Authentication
+$serverName = "tcp:sqlserver-partiel.database.windows.net,3306";
+$database = "appdb";
+$user = "adminuser";
+$pass = "Test2025!";
 
-echo "<pre>";
-echo "DSN utilisé : mysql:host=$host;port=3306;dbname=$db;charset=$charset;sslmode=verify_ca\n";
-echo "Utilisateur : $user\n";
-echo "Certificat : $cert_path\n";
-echo "Fichier existe ? " . (file_exists($cert_path) ? 'oui' : 'non') . "\n";
-echo "</pre>";
-
-$dsn = "mysql:host=$host;port=3306;dbname=$db;charset=$charset";
-$options = [
-    PDO::MYSQL_ATTR_SSL_CA => $cert_path,
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-];
+// Construction de la chaîne de connexion
+$dsn = "sqlsrv:Server=$serverName;Database=$database;Encrypt=true;TrustServerCertificate=false;";
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-    echo "✅ Connexion réussie.";
-} catch (\PDOException $e) {
-    die("❌ Erreur connexion DB : " . $e->getMessage());
+    // Connexion PDO avec SQL Authentication
+    $pdo = new PDO($dsn, $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connexion réussie !";
+} catch (Exception $e) {
+    echo "Erreur de connexion : " . $e->getMessage();
 }
-?>
