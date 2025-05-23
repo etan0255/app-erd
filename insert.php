@@ -1,16 +1,25 @@
 <?php
-// insert.php
 include 'config.php';
 
+// Vérifie si le formulaire est soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = $_POST['name'];
-    $email = $_POST['email'];
+    
+    // Sécuriser les entrées utilisateur
+    $nom = htmlspecialchars($_POST['nom']);
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    $message = htmlspecialchars($_POST['message']);
 
-    $stmt = $pdo->prepare("INSERT INTO contacts (nom, email) VALUES (?, ?)");
-    $stmt->execute([$nom, $email]);
+    // Vérifie l'email
+    if (!$email) {
+        exit("Email invalide.");
+    }
 
-    echo "Utilisateur ajouté avec succès !";
+    // Insérer dans la BDD
+    $stmt = $pdo->prepare("INSERT INTO contacts (nom, email, message) VALUES (?, ?, ?)");
+    $stmt->execute([$nom, $email, $message]);
+
+    echo "Votre message a été envoyé avec succès !";
 } else {
-    echo "Méthode invalide.";
+    echo "Erreur : méthode invalide.";
 }
-?>
+
