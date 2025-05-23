@@ -1,9 +1,22 @@
 <?php
 require 'config.php';
-$stmt = $pdo->query("SELECT * FROM contacts");
-echo "<h2></h2><ul>";
-while ($row = $stmt->fetch()) {
-    echo "<li>{$row['nom']} ({$row['email']})</li>";
+
+try {
+    $stmt = $pdo->query("SELECT * FROM contacts");
+    $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!$contacts) {
+        echo "Aucun contact trouvé.";
+    } else {
+        echo "<h2>Liste des contacts</h2><ul>";
+        foreach ($contacts as $contact) {
+            echo "<li>" . htmlspecialchars($contact['nom']) . " (" . htmlspecialchars($contact['email']) . ") : " . htmlspecialchars($contact['message']) . "</li>";
+        }
+        echo "</ul>";
+    }
+} catch (Exception $e) {
+    exit("Erreur lors de la récupération des contacts : " . $e->getMessage());
 }
-echo "</ul><a href='index.php'>Retour</a>";
 ?>
+
+<a href='index.php'>Retour</a>
