@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Connexion</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Formulaire de contact</title>
 </head>
 <body>
-    <h1>Connexion</h1>
-    <form action="https://app-erd-g7a8f5dmcve8ebem.northeurope-01.azurewebsites.net/" method="post">
-        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-        <input type="password" name="password" placeholder="Mot de passe" required>
-        <button type="submit">Se connecter</button>
+    <h2>Formulaire de Contact</h2>
+    <form action="insert.php" method="POST">
+        <label>Nom :</label><br>
+        <input type="text" name="nom" required><br>
+
+        <label>Email :</label><br>
+        <input type="email" name="email" required><br>
+
+        <label>Message :</label><br>
+        <textarea name="message" required></textarea><br>
+
+        <button type="submit">Envoyer</button>
     </form>
 </body>
 </html>
